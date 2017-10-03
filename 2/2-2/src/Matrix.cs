@@ -1,4 +1,6 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
+
 
 namespace dsp22
 {
@@ -259,7 +261,7 @@ namespace dsp22
 		/// </summary>
 		/// <returns>二次元配列</returns>
 		/// <param name="target">Matrix</param>
-		public static double[,] ToconvertArray(Matrix target)
+		public static double[,] ToConvertArray(Matrix target)
 		{
 			var result = new double[target.GetNumOfRow(), target.GetNumOfColumn()];
 
@@ -270,6 +272,19 @@ namespace dsp22
 					result[i, j] = target.ShowsComponentOf(i, j);
 				}
 			}
+			return result;
+		}
+
+		// 一次元のリスト限定で変換するやつ
+		public static List<double> ToConvertList(Matrix target)
+		{
+			var result = new List<double>();
+
+			for(int i = 0; i < target.GetNumOfRow();i++)
+			{
+				result.Add(target.ShowsComponentOf(i,0));
+			}
+
 			return result;
 		}
 	}
