@@ -1,4 +1,4 @@
-using System;
+﻿﻿﻿using System;
 using System.Collections.Generic;
 
 namespace dsp21
@@ -7,11 +7,10 @@ namespace dsp21
 	{
 		public static void Main(string[] args)
 		{
-			var result = new List<Complex>();
-			var secondData = new List<Complex>();
+			List<Complex> result = new List<Complex>();
+			List<Complex> secondData = new List<Complex>();
 
-			Console.WriteLine("自己相関関数もしくは相互相関関数をファイルに出力します。");
-			Console.Write("自己相関関数：1 相互相関関数：0\n-> ");
+			Console.Write("自己相関係数：1 相互相関係数：0\n-> ");
 			var choice = int.Parse(Console.ReadLine());
 			Console.Write("読み込むファイル名\n-> ");
 			var readFirstFileName = Console.ReadLine();
@@ -26,7 +25,8 @@ namespace dsp21
 			result = Correlation.CorrelationFunction(firstData, secondData);
 			Console.Write("書き込むファイル名\n->");
 			var writeFileName = Console.ReadLine();
-			File.WriteFile(result, writeFileName);
+			File.WriteFile(result,writeFileName);
+			return;
 		}
 	}
 }
