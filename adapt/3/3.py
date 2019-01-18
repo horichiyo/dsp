@@ -38,13 +38,19 @@ for j in range(N):
 
 # print(output)
 
+
+# グラフ
 plt.plot(np.arange(0,N), output)
 plt.xlim(0, 100)
+plt.xlabel('Times[s](X1/10000)')
+plt.ylabel('Amplitude')
 plt.show()
 
-amp = 20*np.log10(np.abs(np.fft.fft(output)))
+amp = 20*np.log10(np.abs(np.fft.fft(output, N)))
 
 plt.plot(np.arange(0,N), amp)
 plt.xlim(0,N/2)
 plt.ylim(-50,0)
+plt.xlabel('Frequency[Hz]')
+plt.ylabel('Amplitude spectrum[dB]')
 plt.show()
